@@ -88,8 +88,7 @@ my_reverse([T|List], RevList) :-
 */
 
 palindrome(List) :-
-	my_reverse(List, ListRev),
-	List = ListRev.
+	my_reverse(List, List).
 
 /*
     Ex 7:
@@ -107,10 +106,10 @@ palindrome(List) :-
 
 setUnion([], L, L).
 setUnion([T|List1], List2, Union) :-
-	member(T, List2),
+	member(T, List2), !,
 	setUnion(List1, List2, Union).
 setUnion([T|List1], List2, [T|Union]) :-
-	setUnion(List1, List2, Union), !.
+	setUnion(List1, List2, Union).
 
 /*
     Ex 8:
@@ -127,10 +126,10 @@ setUnion([T|List1], List2, [T|Union]) :-
 
 setDifference([], _, []).
 setDifference([T|List1], List2, Diff) :-
-	member(T, List2),
+	member(T, List2), !,
 	setDifference(List1, List2, Diff).
 setDifference([T|List1], List2, [T|Diff]) :-
-	setDifference(List1, List2, Diff), !.
+	setDifference(List1, List2, Diff).
 
 /*
 	Ex. 9:
@@ -145,8 +144,8 @@ setDifference([T|List1], List2, [T|Diff]) :-
 
 setIntersection([], _, []).
 setIntersection([T|List1], List2, [T|Inters]) :-
-	member(T, List2),
-	setIntersection(List1, List2, Inters), !.
+	member(T, List2), !,
+	setIntersection(List1, List2, Inters).
 setIntersection([_|List1], List2, Inters) :-
 	setIntersection(List1, List2, Inters).
 
