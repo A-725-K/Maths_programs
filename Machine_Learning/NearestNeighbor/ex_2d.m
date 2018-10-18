@@ -6,10 +6,12 @@ means = [[0;0], [0;1], [1;1], [1;0]];
 sigmas = [0.2, 0.2, 0.2, 0.2];
 
 n = 100; %how much point per mean
-dim = 25; %dimension of a point in the plot
+dim = 25; %dimension of a point in dataset
+dim_new = 800; %dimension of the new point
 max_x = 1; %max x coordinate 
 max_y = 1; %max y coordinate
-classes = 6 %how much equivalence classes
+classes = 3; %how much equivalence classes (<= |means|)
+K = 5; %how much neighbors for K-NN algorithm
 
 %generating the dataset
 [coord, color] = MixGauss(means, sigmas, n);
@@ -21,18 +23,25 @@ classes = 6 %how much equivalence classes
 % class of equivalence
 Y = mod(color, classes);
 
-%new point x~
-new_x = max_x .* rand()
-new_y = max_y .* rand()
+%new points x1~ and x2~
+new_x1 = max_x .* rand()
+new_y1 = max_y .* rand()
+
+new_x2 = max_x .* rand()
+new_y2 = max_y .* rand()
 
 %trying to guess his class
-i = NearestNeighbor(coord, [new_x new_y])
+i = NearestNeighbor(coord, [new_x1 new_y1])
 nn_color = mod(color(i), classes)
+
+ii = K_NearestNeighbor(coord, [new_x2 new_y2], K);
+nnk_color = mod(color(ii), classes)
 
 %plotting the dataset and the new point
 figure(1);
-scatter(new_x, new_y, 800, nn_color, 'filled');
+scatter(new_x1, new_y1, dim_new, nn_color, 'filled');
 hold on;
+scatter(new_x2, new_y2, dim_new, nnk_color, 'filled');
 scatter(coord(:,1), coord(:,2), dim, Y);
 hold off;
 title('my dataset')
