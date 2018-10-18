@@ -17,4 +17,5 @@ This repository contains different programs:
   + Python:
     - 1/magic_square.py: realize, thanks to the Z3 library, a solver for a magic_square.
     - 2/system_of_equations.py: again with Z3 library, the solution a simple system of equations.
-
+  + Machine_Learning
+    - NearestNeighbor: simple implementation of Nearest Neighbor (NN) algorithm in GNU Octave
