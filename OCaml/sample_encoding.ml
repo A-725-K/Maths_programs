@@ -67,3 +67,26 @@ let decode ls =
 
 (* test *)
 decode [Many (4,"a"); One "b"; Many (2,"c"); Many (2,"a"); One "d"; Many (4,"e")];;
+
+(* Gray code *)
+let gray n =
+    let rec addn n = function
+        [] -> []
+        | x::l -> (n^x)::addn n l
+    in
+    let rec create_gray l =
+        let rl = rev l
+        in (addn "0" l)@(addn "1" rl)
+    in
+    let rec aux acc n =
+        if n = 1 
+        then acc
+        else
+            aux (create_gray acc) (n-1)
+        in aux ["0";"1"] n
+;;
+
+(* tests *)
+gray 2;;
+gray 3;;
+gray 4;;
