@@ -14,6 +14,7 @@ This repository contains different programs:
   + Prolog:
     - simple_logic_exercises: contains some logic operator with sets and some Primitive Recursive Function on natural       
       numbers written in the form of 0 and s(...s(0)...).
+	- pascal_triangle: an implementation of the famous Pascal's triangle useful for computing binomial powers
   + Python:
     - 1/magic_square.py: realize, thanks to the Z3 library, a solver for a magic_square.
     - 2/system_of_equations.py: again with Z3 library, the solution a simple system of equations.
