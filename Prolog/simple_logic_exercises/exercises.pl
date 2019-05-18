@@ -201,7 +201,7 @@ cartesianProduct([T|List1], List2, Product) :-
 	ordered in increased order, and without repeated elements.
 */
 
-pivoting([], _, [], _).
+pivoting([], [], [], _).
 pivoting([T|List], [T|S1], S2, E) :-
 	T < E,
 	pivoting(List, S1, S2, E).
@@ -216,5 +216,4 @@ sortAndClean([T|List], Ord) :-
 	pivoting(List, S1, S2, T),
 	sortAndClean(S1, OrdS1),
 	sortAndClean(S2, OrdS2),
-	my_append(OrdS1, [T], Temp),
-	my_append(Temp, OrdS2, Ord), !.
+	my_append(OrdS1, [T|OrdS2], Ord), !.
