@@ -188,7 +188,7 @@ product(_, [], []).
 product(E, [T|L], [(E,T)|X]) :-
 	product(E, L, X), !.
 	
-cartesianProduct([], _, []). 
+cartesianProduct([], _, []).
 cartesianProduct([T|List1], List2, Product) :- 
 	product(T, List2, S),
 	cartesianProduct(List1, List2, ToUnion),
