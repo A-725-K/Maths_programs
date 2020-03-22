@@ -1,8 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
-#include <ctime>
-#include <omp.h>
 
 #define LEN_A 10
 #define LEN_B 10
