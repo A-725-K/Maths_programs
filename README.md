@@ -22,3 +22,4 @@ This repository contains different programs:
     - *2/system_of_equations.py*: again with Z3 library, the solution a simple system of equations.
   + ***Machine_Learning***
     - *NearestNeighbor*: simple implementation of Nearest Neighbor (NN) algorithm in GNU Octave
+  + ***Convex Hull***: a simple implementation of Jarvis march algorithm for gift wrapping problem, and a python script to show the results
