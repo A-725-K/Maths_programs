@@ -23,3 +23,5 @@ This repository contains different programs:
   + ***Machine_Learning***
     - *NearestNeighbor*: simple implementation of Nearest Neighbor (NN) algorithm in GNU Octave.
   + ***Convex Hull***: a simple implementation of Jarvis march algorithm for gift wrapping problem written in C++ and a Python3 script to show the results.
+  + ***Bash***:
+    - *fractals.sh*: fractals generation with a Y pattern
